@@ -1,0 +1,10 @@
+# Editor / bundler state
+project/.image-slots.state.json
+project/.thumbnail
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Claude Code local memory / scratch
+memory/

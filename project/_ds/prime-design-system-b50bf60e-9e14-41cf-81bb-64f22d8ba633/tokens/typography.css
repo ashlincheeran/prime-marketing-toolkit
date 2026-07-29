@@ -1,0 +1,30 @@
+/* PRIME — typography tokens.
+   RULE: Quiche Sans (--font-display) is for titles and headers ONLY.
+   IvyEpic (--font-body) is for all body copy, labels, and UI text. */
+:root {
+  --font-display: 'Quiche Sans', 'Times New Roman', serif;
+  --font-body: 'IvyEpic', system-ui, sans-serif;
+
+  /* Scale */
+  --text-hero: 56px;
+  --text-h1: 40px;
+  --text-h2: 30px;
+  --text-h3: 22px;
+  --text-lead: 17px;
+  --text-base: 14px;
+  --text-small: 12px;
+  --text-caption: 11px;
+
+  /* Rules: tracking 0 on both faces; wide tracking only for small-caps labels */
+  --tracking-default: 0;
+  --tracking-label: 0.14em;
+
+  --leading-display: 1.15;
+  --leading-body: 1.65;
+
+  /* Weights — when pairing 2 weights, skip at least 1 weight */
+  --weight-display: 400;
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+}

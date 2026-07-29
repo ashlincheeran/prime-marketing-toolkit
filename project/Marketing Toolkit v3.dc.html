@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/tokens/colors.css">
+<link rel="stylesheet" href="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/tokens/typography.css">
+<link rel="stylesheet" href="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/tokens/layout.css">
+<link rel="stylesheet" href="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/styles.css">
+<script src="_ds/prime-design-system-b50bf60e-9e14-41cf-81bb-64f22d8ba633/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; background: #0D1D2C; }
+  * { box-sizing: border-box; }
+  a { color: var(--prime-copper); text-decoration: none; }
+  a:hover { color: var(--prime-copper-soft); }
+  @keyframes tkFade { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes tkDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+  ::selection { background: rgba(202,131,66,0.3); }
+  sc-for, sc-for > div { display: contents; }
+  .tk-card img, .tk-card image-slot { transition: transform 900ms cubic-bezier(0.22,1,0.36,1); }
+  .tk-card:hover .tk-media > * { transform: scale(1.045); }
+  .tk-card:hover .tk-rule { width: 100%; }
+  .tk-rule { transition: width 700ms cubic-bezier(0.22,1,0.36,1); }
+  .tk-arrow { animation: tkDrift 2.6s ease-in-out infinite; }
+  .tk-longarrow { opacity: 0; transform: translateX(-12px); transition: opacity 320ms cubic-bezier(0.22,1,0.36,1), transform 420ms cubic-bezier(0.22,1,0.36,1); }
+  .tk-card:hover .tk-longarrow { opacity: 1; transform: none; }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#0D1D2C;color:#fff;font-family:var(--font-body);overflow-x:hidden">
+
+  <header style="position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:32px clamp(22px,4.5vw,64px)">
+    <a href="{{ homeHref }}" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:18px">
+      <img src="assets/logo-white.svg" alt="PRIME" style="height:34px;width:auto;display:block">
+      <span style="width:1px;height:20px;background:var(--line-on-dark)"></span>
+      <span style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-on-dark-2)">Marketing Toolkit</span>
+    </a>
+    <a href="mailto:primemkt@bhomes.com" style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#fff">Contact</a>
+  </header>
+
+  <sc-if value="{{ isHub }}" hint-placeholder-val="{{ true }}">
+    <div key="{{ viewKey }}" style="animation:tkFade .7s var(--ease-luxe)">
+
+      <section style="position:relative;height:100vh;min-height:620px;width:100%;overflow:hidden">
+        <image-slot id="v3-hero" shape="rect" fit="cover" placeholder="Drop a Dubai villa hero" src="https://images.unsplash.com/photo-1640878423503-316007fea369?w=2000&q=78&auto=format&fit=crop" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,29,44,0.72) 0%,rgba(13,29,44,0.34) 38%,rgba(13,29,44,0.9) 100%);pointer-events:none"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 clamp(22px,5vw,64px);pointer-events:none">
+          <div style="font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:30px">Prime Boutique Properties</div>
+          <h1 style="font-family:var(--font-display);font-weight:300;font-size:clamp(42px,7.2vw,104px);line-height:1.02;margin:0 0 26px;color:#fff;text-wrap:balance">Sell the address.<br>Own the impression.</h1>
+          <p style="font-size:17px;line-height:1.75;color:var(--fg-on-dark-1);max-width:52ch;margin:0">Every approved template, asset and guideline in one place — so every message looks, sounds and feels unmistakably PRIME.</p>
+        </div>
+        <div class="tk-arrow" style="position:absolute;left:50%;bottom:38px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;pointer-events:none">
+          <span style="font-size:9px;letter-spacing:0.34em;text-transform:uppercase;color:var(--fg-on-dark-3)">Explore</span>
+          <span style="width:1px;height:46px;background:linear-gradient(180deg,rgba(202,131,66,0.9),rgba(202,131,66,0))"></span>
+        </div>
+      </section>
+
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,6vw,90px);align-items:center;padding:clamp(80px,11vw,160px) clamp(22px,7vw,120px)">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden">
+          <image-slot id="v3-intro" shape="rect" fit="cover" placeholder="Drop a villa exterior" src="https://images.unsplash.com/photo-1743819455744-05417bf55cea?w=1400&q=76&auto=format&fit=crop" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+        </div>
+        <div>
+          <div style="font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:26px">What's inside</div>
+          <h2 style="font-family:var(--font-display);font-weight:300;font-size:clamp(32px,4.4vw,58px);line-height:1.1;margin:0 0 26px;color:#fff">It's about more<br>than a logo.</h2>
+          <p style="font-size:16px;line-height:1.85;color:var(--fg-on-dark-2);max-width:48ch;margin:0 0 20px">Brochures, brand guidelines, listing templates and social layouts — considered, consistent and ready to use. Nothing to design from scratch, nothing off-brand.</p>
+          <p style="font-size:16px;line-height:1.85;color:var(--fg-on-dark-2);max-width:48ch;margin:0">Built around the properties we represent across <span style="color:var(--prime-copper)">Palm Jumeirah</span>, <span style="color:var(--prime-copper)">Dubai Marina</span> and <span style="color:var(--prime-copper)">Damac Hills</span>.</p>
+        </div>
+      </section>
+
+      <section data-tk="scroller" ref="{{ scrollerRef }}" style="position:relative;height:170vh">
+        <div data-tk="pin" style="position:absolute;top:0;left:0;right:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+          <div style="display:flex;align-items:baseline;gap:20px;padding:0 clamp(22px,7vw,120px);margin-bottom:clamp(28px,4vw,56px)">
+            <span style="font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--prime-copper)">The collection</span>
+            <span style="flex:1;height:1px;background:var(--line-on-dark)"></span>
+            <span style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-on-dark-3)">Four sections</span>
+          </div>
+          <div data-tk="track" ref="{{ trackRef }}" style="display:flex;align-items:flex-start;gap:clamp(28px,3.4vw,64px);padding:0 clamp(22px,7vw,120px);will-change:transform">
+            <sc-for list="{{ sections }}" as="s" hint-placeholder-count="4">
+              <a class="tk-card" href="{{ s.href }}" onClick="{{ s.open }}" style="flex:none;width:clamp(300px,36vw,540px);display:block;text-decoration:none;margin-top:{{ s.offset }}">
+                <div class="tk-media" style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#0A1622">
+                  <image-slot id="{{ s.bg }}" shape="rect" fit="cover" placeholder="{{ s.bgHint }}" src="{{ s.img }}" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+                  <span style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(13,29,44,0.1) 40%,rgba(13,29,44,0.65) 100%)"></span>
+                  <span style="position:absolute;left:22px;top:20px;font-family:var(--font-display);font-weight:300;font-size:14px;letter-spacing:0.1em;color:#fff;pointer-events:none">{{ s.num }}</span>
+                </div>
+                <span class="tk-rule" style="display:block;width:36px;height:1px;background:var(--prime-copper);margin:22px 0 18px"></span>
+                <h3 style="font-family:var(--font-display);font-weight:300;font-size:clamp(26px,2.6vw,38px);line-height:1.12;margin:0 0 14px;color:#fff">{{ s.name }}</h3>
+                <span style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+                  <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-on-dark-3)">{{ s.summary }}</span>
+                  <svg class="tk-longarrow" width="87" height="18" viewBox="0 0 87 18" fill="none" style="color:var(--prime-copper);flex:0 0 auto">
+                    <path d="M0 9L84 9.00001" stroke="currentColor" stroke-width="1.5"></path>
+                    <path d="M76.9644 17.0715L85.0001 9.03578L76.9644 1.00002" stroke="currentColor" stroke-width="1.5"></path>
+                  </svg>
+                </span>
+              </a>
+            </sc-for>
+            <a href="mailto:primemkt@bhomes.com" style="flex:none;width:clamp(220px,20vw,280px);aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;border:1px solid var(--line-on-dark);text-decoration:none;transition:border-color 300ms var(--ease-luxe),background 300ms var(--ease-luxe)" style-hover="border-color:rgba(202,131,66,0.7);background:rgba(202,131,66,0.08)">
+              <span style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:#fff;line-height:1.9">Need something<br>bespoke</span>
+              <span style="color:var(--prime-copper);font-size:20px;line-height:1">→</span>
+            </a>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:clamp(30px,4vw,52px) clamp(22px,7vw,120px) 0">
+            <span style="font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-on-dark-3)">Scroll</span>
+            <span style="position:relative;flex:1;max-width:320px;height:1px;background:rgba(255,255,255,0.16)">
+              <span data-tk="progress" ref="{{ progressRef }}" style="position:absolute;left:0;top:0;height:1px;width:0%;background:var(--prime-copper)"></span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section style="position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:clamp(64px,7vw,100px) clamp(22px,6vw,90px)">
+        <image-slot id="v3-statement" shape="rect" fit="cover" placeholder="Drop a Dubai skyline" src="https://images.unsplash.com/photo-1619784924192-050aabcb0653?w=2000&q=76&auto=format&fit=crop" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+        <div style="position:absolute;inset:0;background:rgba(13,29,44,0.78);pointer-events:none"></div>
+        <div style="position:relative;text-align:center;max-width:760px">
+          <div style="font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:26px">Why it matters</div>
+          <h2 style="font-family:var(--font-display);font-weight:300;font-size:clamp(30px,4.4vw,56px);line-height:1.14;margin:0 0 24px;color:#fff">A quiet, consistent brand is what makes the price feel right.</h2>
+          <p style="font-size:16px;line-height:1.85;color:var(--fg-on-dark-2);margin:0 auto;max-width:54ch">Buyers at this level notice the details. Used properly, these materials do the reassuring for you — before the first viewing.</p>
+        </div>
+      </section>
+
+      <footer style="padding:clamp(70px,9vw,120px) clamp(22px,6vw,90px);display:flex;flex-direction:column;align-items:center;gap:34px;border-top:1px solid rgba(255,255,255,0.12)">
+        <div style="text-align:center">
+          <div style="font-family:var(--font-display);font-weight:300;font-size:clamp(26px,3.2vw,38px);color:#fff;margin-bottom:14px">Need marketing support?</div>
+          <p style="font-size:14px;color:var(--fg-on-dark-2);margin:0 0 10px">Reach out to the team directly.</p>
+          <a href="mailto:primemkt@bhomes.com" style="font-size:15px;letter-spacing:0.04em">primemkt@bhomes.com</a>
+        </div>
+        <span style="width:100%;max-width:520px;height:1px;background:var(--line-on-dark)"></span>
+        <img src="assets/logo-white.svg" alt="PRIME Boutique Properties" style="height:52px;width:auto;display:block;opacity:0.92">
+      </footer>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showSection }}" hint-placeholder-val="{{ false }}">
+    <div key="{{ viewKey }}" style="animation:tkFade .6s var(--ease-luxe)">
+
+      <section style="position:relative;height:58vh;min-height:420px;width:100%;overflow:hidden">
+        <image-slot id="{{ current.bg }}" shape="rect" fit="cover" placeholder="Drop a section image" src="{{ current.img }}" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,29,44,0.95) 0%,rgba(13,29,44,0.35) 58%,rgba(13,29,44,0.65) 100%);pointer-events:none"></div>
+        <div style="position:absolute;left:clamp(22px,7vw,120px);right:clamp(22px,7vw,120px);bottom:clamp(44px,5vw,68px);pointer-events:none">
+          <div style="font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:18px">Section {{ current.num }}</div>
+          <h1 style="font-family:var(--font-display);font-weight:300;font-size:clamp(34px,5.4vw,68px);line-height:1.06;margin:0 0 20px;color:#fff">{{ current.name }}</h1>
+          <p style="font-size:16px;line-height:1.8;color:var(--fg-on-dark-1);max-width:60ch;margin:0">{{ current.intro }}</p>
+        </div>
+      </section>
+
+      <div style="padding:clamp(30px,4vw,54px) clamp(22px,7vw,120px) clamp(80px,9vw,130px)">
+        <a href="{{ homeHref }}" onClick="{{ goHome }}" style="display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-on-dark-2);margin-bottom:clamp(32px,4vw,56px)">← Back to toolkit</a>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(28px,3.4vw,48px)">
+          <sc-for list="{{ currentResources }}" as="r" hint-placeholder-count="3">
+            <a class="tk-card" href="{{ r.href }}" target="{{ r.target }}" style="display:block;text-decoration:none">
+              <div class="tk-media" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#0A1622">
+                <image-slot id="{{ r.img }}" shape="rect" fit="cover" placeholder="Drop image" src="{{ r.src }}" credit="Photo via Unsplash" credit-href="https://unsplash.com"></image-slot>
+                <span style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,29,44,0.9) 0%,rgba(13,29,44,0.15) 46%,transparent 70%);pointer-events:none"></span>
+                <span style="position:absolute;left:24px;right:24px;bottom:24px;pointer-events:none">
+                  <span style="display:block;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:10px">{{ r.kicker }}</span>
+                  <span style="display:block;font-family:var(--font-display);font-weight:300;font-size:clamp(22px,2vw,28px);line-height:1.15;color:#fff">{{ r.title }}</span>
+                </span>
+              </div>
+              <span style="display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px">
+                <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-on-dark-2)">{{ r.action }}</span>
+                <span style="color:var(--prime-copper);font-size:17px;line-height:1">→</span>
+              </span>
+              <span class="tk-rule" style="display:block;width:36px;height:1px;background:var(--prime-copper);margin-top:16px"></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;staggerGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+const U = (id, w) => `https://images.unsplash.com/photo-${id}?w=${w || 1400}&q=76&auto=format&fit=crop`;
+
+class Component extends DCLogic {
+  state = { view: 'hub' };
+  scrollerRef = React.createRef();
+  trackRef = React.createRef();
+  progressRef = React.createRef();
+
+  componentDidMount() {
+    const pick = (ref, sel) => (ref && ref.current) || document.querySelector(sel);
+    this._targetP = 0;
+    this._curP = 0;
+    this._calc = () => {
+      const sec = pick(this.scrollerRef, '[data-tk="scroller"]');
+      if (!sec) return;
+      const vh = window.innerHeight;
+      const rect = sec.getBoundingClientRect();
+      const span = Math.max(1, sec.offsetHeight - vh);
+      const raw = Math.min(1, Math.max(0, -rect.top / span));
+      this._targetP = Math.min(1, raw / 0.78);
+    };
+    this._apply = (p) => {
+      const sec = pick(this.scrollerRef, '[data-tk="scroller"]');
+      const track = pick(this.trackRef, '[data-tk="track"]');
+      const pin = document.querySelector('[data-tk="pin"]');
+      if (!sec || !track) return;
+      const vh = window.innerHeight;
+      const rect = sec.getBoundingClientRect();
+      if (pin) pin.style.top = (Math.min(Math.max(0, -rect.top), sec.offsetHeight - vh)) + 'px';
+      const padRight = parseFloat(getComputedStyle(track).paddingRight) || 0;
+      const dist = Math.max(0, track.scrollWidth + padRight - window.innerWidth);
+      track.style.transform = 'translate3d(' + (-p * dist) + 'px,0,0)';
+      const bar = pick(this.progressRef, '[data-tk="progress"]');
+      if (bar) bar.style.width = (p * 100) + '%';
+    };
+    this._loop = () => {
+      this._calc();
+      this._curP += (this._targetP - this._curP) * 0.12;
+      if (Math.abs(this._targetP - this._curP) < 0.0005) this._curP = this._targetP;
+      this._apply(this._curP);
+      this._raf = requestAnimationFrame(this._loop);
+    };
+    this._tick = () => { this._calc(); this._curP = this._targetP; this._apply(this._curP); };
+    window.addEventListener('scroll', this._calc, { passive: true });
+    window.addEventListener('resize', this._tick);
+    this._tick();
+    this._raf = requestAnimationFrame(this._loop);
+  }
+
+  componentDidUpdate() { if (this._tick) this._tick(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._calc);
+    window.removeEventListener('resize', this._tick);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  go(view) {
+    this.setState({ view });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  data() {
+    return [
+      {
+        id: 'essentials', num: '01', name: 'PRIME essentials', bg: 'v3-bg-essentials',
+        bgHint: 'Drop a villa interior', img: U('1743819193200-2b292c31c0bc', 1600),
+        summary: 'Brochure · magazine · letterheads',
+        intro: 'The core PRIME collateral — our flagship brochure, the Top50homes magazine, and stationery — ready to represent the brand in every conversation.',
+        resources: [
+          { kicker: 'Company brochure', title: 'PRIME brochure', action: 'Open', href: '#', target: '_blank', img: 'v3-ess-brochure', src: U('1600607687920-4e2a09cf159d') },
+          { kicker: 'Publication', title: 'Top 50 homes magazine', action: 'View issue', href: '#', target: '_blank', img: 'v3-ess-mag', src: U('1600585152220-90363fe7e115') },
+          { kicker: 'Stationery', title: 'Letterheads', action: 'Download', href: '#', target: '_blank', img: 'v3-ess-letter', src: U('1600566753086-00f18fb6b3ea') },
+        ],
+      },
+      {
+        id: 'brand', num: '02', name: 'Brand & identity', bg: 'v3-bg-brand',
+        bgHint: 'Drop a Dubai skyline', img: U('1706464662649-5b075ef6e5af', 1600),
+        summary: 'Guidelines · brand assets',
+        intro: 'Everything that keeps us unmistakably PRIME — the guidelines that govern logo, colour, typography and layout, alongside the downloadable brand assets.',
+        resources: [
+          { kicker: 'Guidelines', title: 'Brand guidelines', action: 'Open', href: '#', target: '_blank', img: 'v3-brand-guide', src: U('1546412414-e1885259563a') },
+          { kicker: 'Downloads', title: 'Brand assets', action: 'Download', href: '#', target: '_blank', img: 'v3-brand-assets', src: U('1512917774080-9991f1c4c750') },
+        ],
+      },
+      {
+        id: 'brochures', num: '03', name: 'Brochure templates', bg: 'v3-bg-brochures',
+        bgHint: 'Drop a villa exterior', img: U('1640877268187-2fa6b2ed7a5f', 1600),
+        summary: 'Property · community update',
+        intro: 'Editorial, ready-to-fill templates for presenting a single residence or an entire community with the polish PRIME is known for.',
+        resources: [
+          { kicker: 'Listing', title: 'Property brochure', action: 'Use template', href: '#', target: '_blank', img: 'v3-broch-property', src: U('1600047509807-ba8f99d2cdde') },
+          { kicker: 'Report', title: 'Community market update', action: 'Use template', href: '#', target: '_blank', img: 'v3-broch-market', src: U('1600566753190-17f0baa2a6c3') },
+        ],
+      },
+      {
+        id: 'social', num: '04', name: 'Social media templates', bg: 'v3-bg-social',
+        bgHint: 'Drop a poolside villa', img: U('1743819464838-ead29229489e', 1600),
+        summary: 'Recap · property · just sold',
+        intro: 'On-brand social templates that keep the PRIME feed considered and consistent, whatever the moment.',
+        resources: [
+          { kicker: 'Post', title: 'Recap post', action: 'Use template', href: '#', target: '_blank', img: 'v3-social-recap', src: U('1600210491369-e753d80a41f3') },
+          { kicker: 'Post', title: 'Property post', action: 'Use template', href: '#', target: '_blank', img: 'v3-social-property', src: U('1600585154526-990dced4db0d') },
+          { kicker: 'Post', title: 'Just sold / leased post', action: 'Use template', href: '#', target: '_blank', img: 'v3-social-sold', src: U('1618221195710-dd6b41faaea6') },
+        ],
+      },
+    ];
+  }
+
+  renderVals() {
+    const sections = this.data();
+    const view = this.state.view;
+    const isHub = view === 'hub';
+    const current = sections.find(s => s.id === view) || null;
+    const stagger = this.props.staggerGrid ?? false;
+    return {
+      isHub,
+      scrollerRef: this.scrollerRef,
+      trackRef: this.trackRef,
+      progressRef: this.progressRef,
+      showSection: !isHub,
+      viewKey: view,
+      homeHref: '#toolkit',
+      goHome: (e) => { if (e) e.preventDefault(); this.go('hub'); },
+      current: current || {},
+      currentResources: current ? current.resources : [],
+      sections: sections.map((s, i) => ({
+        ...s,
+        href: '#' + s.id,
+        offset: stagger && i % 2 === 1 ? 'clamp(0px,7vw,96px)' : '0px',
+        open: (e) => { if (e) e.preventDefault(); this.go(s.id); },
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

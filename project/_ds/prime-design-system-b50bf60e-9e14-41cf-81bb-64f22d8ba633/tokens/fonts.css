@@ -1,0 +1,14 @@
+/* PRIME webfonts — Quiche Sans (titles/headers) + IvyEpic (body).
+   Quiche Sans is deliberately limited to Light / Regular / Medium for the luxury look;
+   heavier cuts (Bold–Black) and Thin exist in assets/fonts/ but are not loaded. */
+
+@font-face { font-family: 'IvyEpic'; src: url('../assets/fonts/IvyEpic-Light.otf') format('opentype'); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'IvyEpic'; src: url('../assets/fonts/IvyEpic-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'IvyEpic'; src: url('../assets/fonts/IvyEpic-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; }
+
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-Light.otf') format('opentype'); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; }
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-Italic.otf') format('opentype'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Quiche Sans'; src: url('../assets/fonts/QuicheSans-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic; }
