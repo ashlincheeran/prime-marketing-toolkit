@@ -53,6 +53,13 @@
   .tk-tile { position: relative; overflow: hidden; }
   .tk-tile image-slot { transition: transform 900ms cubic-bezier(0.22,1,0.36,1); }
   .tk-tile:hover image-slot { transform: scale(1.05); }
+  .tk-secnav { position: absolute; left: 0; right: 0; bottom: 0; display: flex; overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.14); background: rgba(13,29,44,0.55); scrollbar-width: none; }
+  .tk-secnav::-webkit-scrollbar { display: none; }
+  .tk-secnav-link { flex: 1; min-width: 170px; padding: 18px clamp(16px,2.4vw,28px); border-right: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 6px; transition: background 250ms var(--ease-luxe); }
+  .tk-secnav-link:hover { background: rgba(255,255,255,0.06); }
+  .tk-secnav-link.is-active { background: rgba(202,131,66,0.14); box-shadow: inset 0 2px 0 var(--prime-copper); }
+  .tk-secnav-num { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--prime-copper); }
+  .tk-secnav-name { font-size: 13px; color: #fff; }
 </style>
 </helmet>
 <div style="min-height:100vh;background:#0D1D2C;color:#fff;font-family:var(--font-body);overflow-x:hidden">
@@ -165,13 +172,21 @@
   <sc-if value="{{ showSection }}" hint-placeholder-val="{{ false }}">
     <div key="{{ viewKey }}" style="animation:tkFade .6s var(--ease-luxe)">
 
-      <section style="position:relative;height:56vh;min-height:400px;width:100%;overflow:hidden">
+      <section style="position:relative;height:56vh;min-height:480px;width:100%;overflow:hidden">
         <image-slot id="{{ current.bg }}" shape="rect" fit="cover" placeholder="Drop a section image" src="{{ current.img }}"></image-slot>
         <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,29,44,0.95) 0%,rgba(13,29,44,0.35) 58%,rgba(13,29,44,0.65) 100%);pointer-events:none"></div>
-        <div style="position:absolute;left:clamp(22px,7vw,120px);right:clamp(22px,7vw,120px);bottom:clamp(44px,5vw,64px);pointer-events:none">
+        <div style="position:absolute;left:clamp(22px,7vw,120px);right:clamp(22px,7vw,120px);bottom:clamp(96px,11vh,140px);pointer-events:none">
           <div style="font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:16px">Section {{ current.num }}</div>
           <h1 style="font-family:var(--font-display);font-weight:300;font-size:clamp(32px,5vw,62px);line-height:1.08;margin:0 0 18px;color:#fff">{{ current.name }}</h1>
           <p style="font-size:16px;line-height:1.8;color:var(--fg-on-dark-1);max-width:60ch;margin:0">{{ current.intro }}</p>
+        </div>
+        <div class="tk-secnav">
+          <sc-for list="{{ sections }}" as="s" hint-placeholder-count="5">
+            <a class="{{ s.navClass }}" ref="{{ s.navRef }}" href="{{ s.href }}" onClick="{{ s.open }}">
+              <span class="tk-secnav-num">{{ s.num }}</span>
+              <span class="tk-secnav-name">{{ s.name }}</span>
+            </a>
+          </sc-for>
         </div>
       </section>
 
@@ -293,6 +308,12 @@ class Component extends DCLogic {
     const mappedSections = sections.map((s) => ({
       ...s,
       href: '#' + s.id,
+      navClass: 'tk-secnav-link' + (s.id === view ? ' is-active' : ''),
+      navRef: s.id === view ? (el) => {
+        // Keep the active item visible when the strip scrolls horizontally (narrow screens).
+        const strip = el && el.closest && el.closest('.tk-secnav');
+        if (strip) strip.scrollLeft = Math.max(0, el.offsetLeft - (strip.clientWidth - el.offsetWidth) / 2);
+      } : null,
       imgCreditText: s.imgCredit === false ? '' : 'Photo via Unsplash',
       open: (e) => { if (e) e.preventDefault(); this.go(s.id); },
     }));
