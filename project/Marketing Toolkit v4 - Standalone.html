@@ -80,7 +80,6 @@
         <image-slot id="v4-hero" shape="rect" fit="cover" placeholder="Drop a Dubai villa hero" src="compressed/hero.png"></image-slot>
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,29,44,0.7) 0%,rgba(13,29,44,0.3) 42%,rgba(13,29,44,0.92) 100%);pointer-events:none"></div>
         <div style="position:absolute;left:0;right:0;bottom:clamp(120px,16vh,200px);padding:0 clamp(22px,6vw,90px);pointer-events:none">
-          <div style="font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--prime-copper);margin-bottom:26px">Prime Boutique Properties</div>
           <h1 style="font-family:var(--font-display);font-weight:300;font-size:clamp(38px,6.4vw,92px);line-height:1.04;margin:0 0 26px;color:#fff;max-width:16ch;text-wrap:balance">{{ heroHeadline }}</h1>
           <p style="font-size:16px;line-height:1.75;color:var(--fg-on-dark-1);max-width:48ch;margin:0 0 34px">{{ heroSubtext }}</p>
           <a href="#collection" onClick="{{ scrollToCollection }}" style="pointer-events:auto;display:inline-flex;align-items:center;gap:12px;padding:16px 30px;background:var(--prime-copper);color:#0D1D2C;font-size:11px;letter-spacing:0.2em;text-transform:uppercase">Explore the toolkit</a>
@@ -212,7 +211,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Sell the address. Own the impression.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero text&quot;},&quot;heroSubtext&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Every approved template, asset and guideline in one place — so every message looks, sounds and feels unmistakably PRIME.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero text&quot;},&quot;extraCardEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Add a card&quot;},&quot;extraCardTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;New resource&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Add a card&quot;},&quot;extraCardCount&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1 resource&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Add a card&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroHeadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Everything you need to represent PRIME.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero text&quot;},&quot;heroSubtext&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Access brand assets, marketing collateral, social templates, photography guidelines and essential resources, all in one place.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero text&quot;},&quot;extraCardEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Add a card&quot;},&quot;extraCardTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;New resource&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Add a card&quot;},&quot;extraCardCount&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1 resource&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Add a card&quot;}}">
 const U = (id, w) => `https://images.unsplash.com/photo-${id}?w=${w || 1400}&q=76&auto=format&fit=crop`;
 
 class Component extends DCLogic {
@@ -341,8 +340,8 @@ class Component extends DCLogic {
       current: current || {},
       currentResources: current ? current.resources : [],
       allResources,
-      heroHeadline: this.props.heroHeadline ?? 'Sell the address. Own the impression.',
-      heroSubtext: this.props.heroSubtext ?? 'Every approved template, asset and guideline in one place — so every message looks, sounds and feels unmistakably PRIME.',
+      heroHeadline: this.props.heroHeadline ?? 'Everything you need to represent PRIME.',
+      heroSubtext: this.props.heroSubtext ?? 'Access brand assets, marketing collateral, social templates, photography guidelines and essential resources, all in one place.',
       sections: mappedSections,
       railCards,
     };
